@@ -14,6 +14,7 @@ use Desarrolla2\Bundle\BlogBundle\Form\Frontend\Model\CommentModel;
 use Desarrolla2\Bundle\BlogBundle\Model\PostStatus;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Doctrine\ORM\Query\QueryException;
+use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
 {
@@ -51,7 +52,6 @@ class PostController extends Controller
      *
      * @Route("/post/{slug}" , name="_blog_view", requirements={"slug" = "[\w\d\-]+"})
      * @Method({"GET"})
-     * @Template()
      */
     public function viewAction(Request $request)
     {
@@ -64,16 +64,27 @@ class PostController extends Controller
             return new RedirectResponse($this->generateUrl('_blog_default'), 302);
         }
 
-        $comments = $this->getDoctrine()->getManager()
-            ->getRepository('BlogBundle:Comment')->getForPost($post);
+        $response = new Response();
+        $response->setLastModified($post->getUpdatedAt());
 
-        $form = $this->createForm(new CommentType(), new CommentModel($this->createCommentForPost($post)));
+        if ($response->isNotModified($request)) {
+            return $response;
+        } else {
+            $comments = $this->getDoctrine()->getManager()
+                ->getRepository('BlogBundle:Comment')->getForPost($post);
 
-        return array(
-            'post' => $post,
-            'comments' => $comments,
-            'form' => $form->createView(),
-        );
+            $form = $this->createForm(new CommentType(), new CommentModel($this->createCommentForPost($post)));
+
+            return $this->render(
+                'BlogBundle:Frontend/Post:view.html.twig',
+                array(
+                    'post' => $post,
+                    'comments' => $comments,
+                    'form' => $form->createView(),
+                ),
+                $response
+            );
+        }
     }
 
     /**
