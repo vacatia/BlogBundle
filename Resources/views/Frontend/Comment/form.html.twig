@@ -1,4 +1,4 @@
-<h2>Leave a comment</h2>
+<h2>{{ 'Leave a comment'|trans }}</h2>
 <form id="post-comment" action="{{ path('_blog_comment_create', { 'post_id' : post.id }) }}"
       method="post" {{ form_enctype(form) }}>
   <div class="row-fluid">
@@ -7,7 +7,7 @@
     {% endif %}
     <div class="span7">
       <p>
-        <label for="">Comment(*)</label>
+        <label for="">{{ 'Comment'|trans }}(*)</label>
         {% if form_errors(form.content) %}
 
       <div class="alert alert-error">{{ form_errors(form.content) }}</div>
@@ -17,7 +17,7 @@
     </div>
     <div class="span5">
       <p>
-        <label for="">Name(*)</label>
+        <label for="">{{ 'Name'|trans }}(*)</label>
         {% if form_errors(form.userName) %}
 
       <div class="alert alert-error">{{ form_errors(form.userName) }}</div>
@@ -25,7 +25,7 @@
       {{ form_widget(form.userName) }}
       </p>
       <p>
-        <label for="">Email</label>
+        <label for="">{{ 'Email'|trans }}</label>
         {% if form_errors(form.userEmail) %}
 
       <div class="alert alert-error">{{ form_errors(form.userEmail) }}</div>
@@ -44,7 +44,7 @@
   </div>
   <div class="row-fluid row-captha">
     <p>
-      <label for="">(*)Are you human?</label>
+      <label for="">(*){{ 'Are you human'|trans }}?</label>
       {% if form_errors(form.captcha) %}
     <div class="alert alert-error">{{ form_errors(form.captcha) }}</div>
     {% endif %}
@@ -52,7 +52,7 @@
     </p>
   </div>
 
-  <button class="btn" type="submit">Send</button>
+  <button class="btn" type="submit">{{ 'Send'|trans }}</button>
   {{ form_rest(form) }}
 </form>
-<p>Fields marked with (*) are mandatory</p>
+<p>{{ 'comment.form.mandatory'|trans({'%mark%': '(*)'}) }}</p>

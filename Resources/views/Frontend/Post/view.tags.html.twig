@@ -2,6 +2,6 @@
   {% for tag in tags %}
     <li><a href="{{ path('_blog_tag', { 'slug' : tag.slug }) }}">{{ tag }}</a></li>
   {% else %}
-    <li>Has no tags</li>
+    <li>{{ 'Has no tags'|trans }}</li>
   {% endfor %}
 </ul>

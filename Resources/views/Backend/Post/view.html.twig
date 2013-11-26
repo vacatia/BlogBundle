@@ -5,8 +5,8 @@
         <header>
             <h2><a href="{{ url('_blog_view', { 'slug' : post.slug }) }}">{{ post }}</a></h2>
             <small>
-                <time datetime="{{ post.createdAt | date('c') }}">
-                    {{ post.createdAt | localeDate('full') }} at {{ post.createdAt | localeDate('none', 'short') }}</time>
+                {{ 'the'|trans }} <time datetime="{{ post.createdAt | date('c') }}">
+                    {{ post.createdAt | localeDate('full') }} {{ 'at'|trans }} {{ post.createdAt | localeDate('none', 'short') }}</time>
             </small>
         </header>
             {{ post.content | raw }}
