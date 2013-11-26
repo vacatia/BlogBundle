@@ -17,7 +17,7 @@
     <ul id="archive">
       {% for year, posts in items %}
       <li>
-        <h3> Year {{ year }}</h3>
+        <h3> {{ 'Year'|trans }} {{ year }}</h3>
         <ul>
           {% for item in posts %}
             <li>
@@ -25,14 +25,14 @@
               { 'year' : item.date.format('Y'), 'month': item.date.format('m') }) }}"
                  title="{{ title }} {{ item.date | localeCustomDate('short') }}">
                 {{ item.date | localeCustomDate('short') | capitalize }}
-              </a> {{ item.n }} elements.
+              </a> {{ item.n }} {{ 'elements'|trans }}.
             </li>
           {% else %}
-            <li>No elements</li>
+            <li>{{ 'No elements'|trans }}</li>
           {% endfor %}
         </ul>
         {% else %}
-      <li>No elements</li>
+      <li>{{ 'No elements'|trans }}</li>
       {% endfor %}
     </ul>
   </article>
