@@ -22,13 +22,13 @@
     {{ post.content | raw }}
 
     {% if post.hasSource %}
-      <p>Link to original source: <a href="{{ post.source }}" target="_blank" title="{{ post }}">{{ post }}</a></p>
+      <p>{{ 'Link to original source'|trans }}: <a href="{{ post.source }}" target="_blank" title="{{ post }}">{{ post }}</a></p>
     {% endif %}
     <small>
-      Published at
+      {{ 'Published at'|trans }}
       <time datetime="{{ post.publishedAt | date('c') }}">{{ post.publishedAt | localeDate('full') }}</time>
       ,
-      last modified at
+      {{ 'last modified at'|trans }}
       <time datetime="{{ post.updatedAt | date('c') }}">{{ post.updatedAt | localeDate('full') }}</time>
       .
     </small>
@@ -42,17 +42,17 @@
 
 {% block sidebar %}
   <div class="block">
-    <h2>Latest posts</h2>
+    <h2>{{ 'Latest posts'|trans }}</h2>
     {{ render(controller('BlogBundle:Frontend\\Widget:latestPost', { 'post': post })) }}
   </div>
 
   <div class="block">
-    <h2>Relates posts</h2>
+    <h2>{{ 'Related posts'|trans }}</h2>
     {{ render(controller('BlogBundle:Frontend\\Widget:latestPostRelated', { 'post': post })) }}
   </div>
 
   <div class="block">
-    <h2>Latest comments</h2>
+    <h2>{{ 'Latest comments'|trans }}</h2>
     {{ render(controller('BlogBundle:Frontend\\Widget:latestComment', { 'post': post })) }}
   </div>
 {% endblock %}

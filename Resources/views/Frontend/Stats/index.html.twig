@@ -1,47 +1,47 @@
 {% extends "::frontend.html.twig" %}
-{% block title %} Site Statistics {% endblock %}
+{% block title %} {{ 'Site Statistics'|trans }} {% endblock %}
 
 {% block content %}
   <article class="post">
     <header>
       <h2><a href="{{ path('_blog_stats') }}" title="stats">Stats</a></h2>
     </header>
-    <h3>Posts published</h3>
+    <h3>{{ 'Posts published'|trans }}</h3>
     <table class="table table-bordered table-striped">
       <thead>
       <tr>
         <th></th>
-        <th>Posts</th>
-        <th>Comments</th>
-        <th>Links</th>
+        <th>{{ 'Posts'|trans }}</th>
+        <th>{{ 'Comments'|trans }}</th>
+        <th>{{ 'Links'|trans }}</th>
       </tr>
       </thead>
       <tr>
-        <td>Last day</td>
+        <td>{{ 'Last day'|trans }}</td>
         <td>{{ post.last_day }}</td>
         <td>{{ comment.last_day }}</td>
         <td>{{ link.last_day }}</td>
       </tr>
       <tr>
-        <td>Last week</td>
+        <td>{{ 'Last week'|trans }}</td>
         <td>{{ post.last_week }}</td>
         <td>{{ comment.last_week }}</td>
         <td>{{ link.last_week }}</td>
       </tr>
       <tr>
-        <td>Last month</td>
+        <td>{{ 'Last month'|trans }}</td>
         <td>{{ post.last_month }}</td>
         <td>{{ comment.last_month }}</td>
         <td>{{ link.last_month }}</td>
       </tr>
       <tr>
-        <td>Last year</td>
+        <td>{{ 'Last year'|trans }}</td>
         <td>{{ post.last_year }}</td>
         <td>{{ comment.last_year }}</td>
         <td>{{ link.last_year }}</td>
       </tr>
       <tr>
-        <td>Total</td>
+        <td>{{ 'Total'|trans }}</td>
         <td>{{ post.total }}</td>
         <td>{{ comment.total }}</td>
         <td>{{ link.total }}</td>

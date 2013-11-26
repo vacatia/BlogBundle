@@ -4,7 +4,7 @@
   {% for post in pagination %}
     {% include 'BlogBundle:Frontend/Post:item.html.twig' with {'post': post} %}
   {% else %}
-    <p>No elements</p>
+    <p>{{ 'No elements'|trans }}</p>
   {% endfor %}
 
   <div class="navigation">

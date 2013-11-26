@@ -2,12 +2,10 @@
 {% block content %}
   <article class="post">
     <header>
-      <h2>Thank you</h2>
+      <h2>{{ 'Thank you'|trans }}</h2>
     </header>
     <p>
-      We have received your comment, an administrator will check to
-      approve as soon as possible, you can continue to browse recent
-      items posted on the site.
+      {{ 'comment.message.confirm'|trans }}
     </p>
     {{ render(controller('BlogBundle:Frontend\\Widget:latestPost')) }}
   </article>
