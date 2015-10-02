@@ -1,6 +1,6 @@
 {% extends "BlogBundle::backend.html.twig" %}
 {% block content %}
-<form class="well" action="{{ url('_blog_backend_image_create') }}" method="post" {{ form_enctype(form) }}>
+{{ form_start(form, {'action': url('_blog_backend_image_create'), 'method': 'POST', 'attr': {'class': 'well'} }) }}
    {% include 'BlogBundle:Backend/Image:edit.form.html.twig' with {'form': form } %}
 </form>
 {% endblock %}
