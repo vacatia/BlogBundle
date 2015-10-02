@@ -59,9 +59,9 @@ class TwigExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            'localeDate' => new \Twig_Filter_Method($this, 'localeDate'),
-            'localeCustomDate' => new \Twig_Filter_Method($this, 'localeCustomDate'),
-            'highlight' => new \Twig_Filter_Method($this, 'highlight'),
+            'localeDate' => new \Twig_SimpleFilter('localeDate', array($this, 'localeDate')),
+            'localeCustomDate' => new \Twig_SimpleFilter('localeCustomDate', array($this, 'localeCustomDate')),
+            'highlight' => new \Twig_SimpleFilter('highlight', array($this, 'highlight')),
         );
     }
 
