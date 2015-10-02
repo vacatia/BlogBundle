@@ -1,6 +1,5 @@
 <h2>{{ 'Leave a comment'|trans }}</h2>
-<form id="post-comment" action="{{ path('_blog_comment_create', { 'post_id' : post.id }) }}"
-      method="post" {{ form_enctype(form) }}>
+{{ form_start(form, {'action': path('_blog_comment_create', { 'post_id' : post.id }), 'method': 'POST', 'attr': {'id': 'post-comment'} }) }}
   <div class="row-fluid">
     {% if form_errors(form) %}
       <div class="alert alert-error">{{ form_errors(form) }}</div>
