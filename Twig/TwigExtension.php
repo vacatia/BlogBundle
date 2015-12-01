@@ -23,7 +23,7 @@ use IntlDateFormatter;
  * @file   : TwigExtension.php , UTF-8
  * @date   : Oct 15, 2012 , 9:54:55 PM
  */
-class TwigExtension extends \Twig_Extension
+class TwigExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
 
     protected $gaTracking;
