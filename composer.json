@@ -12,11 +12,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "symfony/framework-bundle": "2.3.*",
-        "knplabs/knp-paginator-bundle": "2.3.*",
-        "gedmo/doctrine-extensions": "2.3.*",
-        "gregwar/captcha-bundle": "1.0.*"
+        "php": ">=5.3.3"
     },
     "require-dev": {
         "desarrolla2/cache": "1.*",
